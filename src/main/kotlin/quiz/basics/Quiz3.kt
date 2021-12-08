@@ -7,10 +7,9 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
-object Example3 {
+object Quiz3 {
     fun getNumberFeed() = flow<Int> {
         for (i in 1..4) {
-            println(i)
             emit(i)
             delay(300)
         }
@@ -21,8 +20,8 @@ object Example3 {
 fun main(args: Array<String>) {
     runBlocking {
         GlobalScope.launch {
-            val flow = Example3.getNumberFeed().collect {
-                println("$it!")
+            Quiz3.getNumberFeed().collect {
+                println(it)
             }
         }.join()
     }
@@ -35,3 +34,6 @@ fun main(args: Array<String>) {
  * c) Nothing
  * d) Exception
  */
+
+
+

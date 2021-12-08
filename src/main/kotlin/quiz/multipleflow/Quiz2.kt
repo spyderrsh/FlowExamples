@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
-object Example2 {
+object Quiz2 {
     fun getNumberFeed() = flow<Int> {
         for (i in 1..4) {
             emit(i)
@@ -24,15 +24,15 @@ object Example2 {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     runBlocking {
         val numberJob = GlobalScope.launch {
-            Example2.getNumberFeed().collect {
+            Quiz2.getNumberFeed().collect {
                 println(it)
             }
         }
         val letterJob = GlobalScope.launch {
-                Example2.getLetterFeed().collect {
+                Quiz2.getLetterFeed().collect {
                     println(it)
                 }
         }

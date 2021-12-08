@@ -1,9 +1,9 @@
-package example1
+package quiz.basics
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
-import kotlin.random.Random
-object Example1 {
+
+object Quiz1 {
     fun getNumberFeed() = flow<Int> {
         for (i in 1..4) {
             emit(i.also {
@@ -15,8 +15,8 @@ object Example1 {
 }
 
 
-fun main(args: Array<String>) {
-    Example1.getNumberFeed()
+fun main() {
+    Quiz1.getNumberFeed()
 }
 
 /**

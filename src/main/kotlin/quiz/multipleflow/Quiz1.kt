@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
-object Example1 {
+object Quiz1 {
     fun getNumberFeed() = flow<Int> {
         for (i in 1..4) {
             emit(i)
@@ -24,15 +24,14 @@ object Example1 {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     runBlocking {
         GlobalScope.launch {
-            Example1.getNumberFeed().collect {
+            Quiz1.getNumberFeed().collect {
                 println(it)
             }
-            Example1.getLetterFeed().collect {
+            Quiz1.getLetterFeed().collect {
                 println(it)
-
             }
         }.join()
     }
@@ -58,5 +57,5 @@ fun main(args: Array<String>) {
  *
  *
  * Explanation:
- * `collect` is a suspending function. The second collection doesn't finish until the first collection is finished.
+ * `collect` is a suspending function. The second collection doesn't start until the first collection is finished.
  */

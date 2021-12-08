@@ -5,11 +5,12 @@ import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.conflate
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
-object Example6 {
+object Example4 {
     fun getNumberFeed() = flow<Int> {
         for (i in 1..4) {
             println(i)
@@ -17,14 +18,13 @@ object Example6 {
             delay(300)
         }
 
-    }
+    }.conflate()
 }
 
-fun main(args: Array<String>) {
+fun main() {
     runBlocking {
         GlobalScope.launch {
-            val flow = Example6.getNumberFeed()
-                .buffer(0, BufferOverflow.DROP_OLDEST)
+            Example4.getNumberFeed()
                 .collect {
                     delay(500)
                     println("$it!")

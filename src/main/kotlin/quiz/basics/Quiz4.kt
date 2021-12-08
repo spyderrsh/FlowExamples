@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
 
-object Example5 {
+object Quiz4 {
     fun getNumberFeed() = flow<Int> {
         println("Shuffling Numbers!")
         val numbers = (1..4).shuffled()
@@ -17,8 +17,8 @@ object Example5 {
     }
 }
 
-fun main(args: Array<String>) {
-    val flow1 = Example5.getNumberFeed()
+fun main() {
+    val flow1 = Quiz4.getNumberFeed()
     println("Flow 1")
     runBlocking {
         flow1.collect {

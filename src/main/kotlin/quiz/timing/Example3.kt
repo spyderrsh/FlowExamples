@@ -20,11 +20,11 @@ object Example3 {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     runBlocking {
         GlobalScope.launch {
-            val flow = Example3.getNumberFeed()
-                .buffer(0, BufferOverflow.DROP_LATEST)
+            Example3.getNumberFeed()
+                .buffer(2, BufferOverflow.DROP_LATEST)
                 .collect {
                     delay(500)
                     println("$it!")

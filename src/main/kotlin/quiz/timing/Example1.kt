@@ -19,10 +19,10 @@ object Example1 {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     runBlocking {
         GlobalScope.launch {
-            val flow = Example1.getNumberFeed().collect {
+            Example1.getNumberFeed().collect {
                 delay(500)
                 println("$it!")
             }

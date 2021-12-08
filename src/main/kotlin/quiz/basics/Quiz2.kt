@@ -5,11 +5,11 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
-object Example4 {
+object Quiz2 {
     fun getNumberFeed() = flow<Int> {
         for (i in 1..4) {
+            println(i)
             emit(i)
             delay(300)
         }
@@ -17,14 +17,11 @@ object Example4 {
     }
 }
 
-fun main(args: Array<String>) {
-    runBlocking {
-        GlobalScope.launch {
-            val flow = Example4.getNumberFeed().collect {
-                delay(500)
-                println(it)
-            }
-        }.join()
+fun main() {
+    GlobalScope.launch {
+        Quiz2.getNumberFeed().collect {
+            println("$it")
+        }
     }
 }
 /**

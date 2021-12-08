@@ -1,27 +1,26 @@
 package examples.basics
 
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 object Example1 {
     fun getNumbersFlow() = flow {
         for (i in 0 until  10) {
-            delay(200)
+            delay(500)
             emit(i)
         }
     }
 }
 
-fun main() = runBlocking {
-    GlobalScope.launch {
-        println("Start Collection")
-        Example1.getNumbersFlow().collect {
-            println(it)
-        }
-        println("Stop Collection")
+fun main() {
+    return runBlocking {
+        GlobalScope.launch {
+            println("Start Collection")
+            Example1.getNumbersFlow().collect {
+                println(it)
+            }
+            println("Stop Collection")
+        }.join()
     }
 }
