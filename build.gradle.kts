@@ -15,6 +15,10 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-RC")
+    implementation(kotlin("reflect"))
+    implementation("org.jline:jline:3.21.0")
+    implementation("org.jline:jline-terminal-jna:3.21.0")
+    implementation("org.jline:jline-console:3.21.0")
 }
 
 tasks.test {
