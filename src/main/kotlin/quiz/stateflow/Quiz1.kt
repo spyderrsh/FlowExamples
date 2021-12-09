@@ -13,6 +13,9 @@ object Quiz1 {
             MutableStateFlow(userInputList as List<String>)
         val stateFlow = stateFlowInternal.asStateFlow()
 
+        /**
+         * The ConsoleModel *does* receive the user input
+         */
         override fun onUserInput(line: String) {
             userInputList.add(line)
         }
